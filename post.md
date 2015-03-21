@@ -44,7 +44,20 @@ Key Points:
 ---
 The design of the API has no real significance if there is no way to communicate from the user to the client and then to the server. The integration should be straightforward that will allow for sharing to link together the systems involved in the communcation process. What is needed for this communication to happen?
 
-There is a continuous real time communication process that goes on when your API is being used. What happens for the most part is that when something happens on one computer, the other will automatically update. One example of this is when a person interacts with the client and wants to update the server. One thing I want to mention before moving on that I may have overlooked is how to look at the role of the API on the computer. Just like any computer that you interact with, you have programs that you use. The API is considered to be a program, and it sits on the computer, which we call the server, and it is a stand-alone program that waits for the server to talk to it and asks for information that was sent to it by the client. What we mentioned above before this, when we were talking aboutt the person interacting with the client wanting information from the server, this is considered client-driven. There is also server-driven. Server-driven differs in that a user does something and needs the client to be aware of the change. With the design of a good API, the client should be the only initiater of communication. When this design has been correctly implemented, the client will know exactly when data has changed, which allows it to call the API right away letting the server know about the data change. This happens in real time with no delay.
+There is a continuous real time communication process that goes on when your API is being used. What happens for the most part is that when something happens on one computer, the other will automatically update. One example of this is when a person interacts with the client and wants to update the server. One thing I want to mention before moving on that I may have overlooked is how to look at the role of the API on the computer. Just like any computer that you interact with, you have programs that you use. The API is considered to be a program, and it sits on the computer, which we call the server, and it is a stand-alone program that waits for the server to talk to it and asks for information that was sent to it by the client. What we mentioned above before this, when we were talking about the person interacting with the client wanting information from the server, this is considered client-driven. There is also server-driven. Server-driven differs in that a user does something and needs the client to be aware of the change. With the design of a good API, the client should be the only initiater of communication. When this design has been correctly implemented, the client will know exactly when data has changed, which allows it to call the API right away letting the server know about the data change. This happens in real time with no delay.
+
+At the time of this writing, we know that there is no such option for "true" real time communication in web applications. The likes of [WebSockets](https://developer.mozilla.org/en-US/docs/WebSockets) and ServiceWorker(https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker_API) are bringing us closer to having this capability, but real time communication does have falacies that were made known to me from feedback during a review of this original post. Falacies of distributed computing are assumptions that are invariably made by those new to distributed computing. These falacies are:
+
+* The network is reliable
+* Latency is zero
+* Bandiwdth is infinite
+* The network is secure
+* Topology does not change
+* There is one administrator
+* Transport cost is zero
+* The network is homongeneous
+
+It is easy for me to say that I fall into the category of one who is new to distributed computing and have much to learn about. That being said, I still think that we - on the client-side - are getting closer and closer to being able to deliver real time communication. NodeJS has given us the capabilities to deal with these falacies more and more, which can be read about from a blog post that was done by Nodejitsu - [Fault tolerant applications in nodejs])(http://blog.nodejitsu.com/fault-tolerant-applications-in-nodejs/). There is another [blog post](http://www.lshift.net/blog/2012/04/02/the-fallacies-of-distributed-computing/) that talks about NodeJS not being able to isolate us from the effects of the infrastructure they utilize 
 
 Of the two options, client-driven and server-driven, it is harder on the integration of server-driven because of the possiblity of numerous requests that could be coming in at the same time and the server needing to know how to handle all of these requests. How can this be handled? Polling.
 
@@ -75,3 +88,5 @@ Your consumers are the ones that will be most interested in your API, and needin
 * [RFC-7231 - Hypertext Transfer Protocol: Semantics and Protocol](http://tools.ietf.org/html/rfc7231)
 * [Header Field Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14)
 * [Using HTTP methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html)
+* [WebSocket Protocal(http://tools.ietf.org/html/rfc6455)
+* [Falaciies of distributed computing](http://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)
