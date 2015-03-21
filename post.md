@@ -39,6 +39,38 @@ The first one listed above is the **GET** request. This is used to retrieve a re
 
 The **PUT** request is utilized for its updating capabilities. This request is for a new representation of a known resource. **PUT** is to be considered an unsafe operation as it modifies the state on the server. The reason for this to be unsafe is that if you update or create a resource and then try to update the resouce again, the resource is still there and will have the same state as was there from the first **PUT** call. Examples of **PUT** include: `/patients/1001`, `/patients/1001/prescriptions/5534`. More information on these methods and others can be found from the resources listed at the bottom.
 
+###POST
+
+The **POST** request is a new request that the web server accepts with the entity that is enclosed and identified by the URI. It is used to create subordinate resources, which in essence means it is a subordinate to some other resource. This method is not considered to be a *safe* method as making identical requests will likely result in two resources containing the same information. Examples of the **POST** include:
+
+`/patients`
+`/patients/1001/prescriptions`
+
+###DELETE
+
+The **DELETE** request is fairly straight and easy to understand. It is used to delete a resouce that is identified by a URI. The request will delete a resource, and repeatedly calling DELETE on that resource will always end up the same. Some examples of **DELETE** include:
+
+`/patients/1001`
+`/patients/1001/prescriptions`
+
+###TRACE
+
+The **TRACE** request will send back the received request allowing the client to see if there have been any changes or additions by intermediate servers.
+
+###OPTIONS
+
+The **OPTIONS** will return the methods of HTTP that the server supports for the specified URL. 
+
+###CONNECT
+
+The **CONNECT** request converts the connection to a transparent TCL/IP tunnel, which is usually used to facilitate SSL encryption. 
+
+###PATCH
+
+The **PATCH** request applies partial modifications to a resource.
+
+##Safe Methods
+
 #Thought Process
 
 This first thought process has to be how easy can the API be so that other computers can work with the data delivers from the API. This brings up the decisions that were touched on in the previosu paragraph. One of the most used approaches is Representational State Transfer – REST – because it is an open approach for lots of conventions that are used for consumers of your API. How this transfer is made is determined by the resources made available by your API. 
