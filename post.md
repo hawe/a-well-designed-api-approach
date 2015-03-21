@@ -106,7 +106,7 @@ Your consumers are the ones that will be most interested in your API, and needin
 * [RFC-7231 - Hypertext Transfer Protocol: Semantics and Protocol](http://tools.ietf.org/html/rfc7231)
 * [Header Field Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14)
 * [Using HTTP methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html)
-* [WebSocket Protocal(http://tools.ietf.org/html/rfc6455)
+* [WebSocket Protocal](http://tools.ietf.org/html/rfc6455)
 * [Falaciies of distributed computing](http://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)
 * [What is HTTP Long Polling](http://www.pubnub.com/blog/http-long-polling/)
 * [Webhooks - Read the docs](http://docs.readthedocs.org/en/latest/webhooks.html)
