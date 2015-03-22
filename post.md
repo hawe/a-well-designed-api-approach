@@ -216,6 +216,17 @@ Refresh tokens are credentials used to obtain access tokens. When the current ac
 
 There is a slew of information that can be read about in regards to OAuth 2 from the Internet Engineering Task Force - [The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
 
+#Frameworks
+
+This is a short list of frameworks that you may want to look into for your API. By no means are these the only frameworks, nor are they in any particular order. If you know of some that are not listed, please share.
+
+1. [OAuth 2.0](http://oauth.net/2/)
+2. [Swagger](http://swagger.io/)
+2. [Django REST framework](http://www.django-rest-framework.org/)
+3. [Restlet](http://restlet.com/)
+4. [List of REST frameworks categorized by supported languages](https://code.google.com/p/implementing-rest/wiki/ByLanguage)
+
+
 #Summary
 
 Having a well thought out API is important in how you are able to give access to your consumers of the data that you make available. Not only so, but it also gives for creating a better application infrastructure. It will be the details that are put into the API design that can then give you the base knowledge of how to code your application around the API. 
