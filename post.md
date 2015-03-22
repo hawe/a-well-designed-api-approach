@@ -123,6 +123,8 @@ An API, or set of API's, are the center piece of your application and needs to h
 
 Versioning is an important decision making process that must take into consideration what state the API will be in when changes occur. If one is to use the [semver](http://semver.org/) approach, the approach would be to follow a strict set of rules:
 
+![Semantic Versioning](http://imageshack.com/a/img537/9536/YvODxA.jpg)
+
 ###Major
 Major version changes are when you make incompatible API changes. When a major version change occurs, it must be made known to public consumers ahead of time about these changes so they can be aware of what will no longer be available. One rule of thumb that should be considered when there is going to be a major change is to deprecate so that consumers will know to start making changes based on the changes of the API. Knowing that the API will have changes that will supersede the previous version will give the consumers of your API time to adjust before the previous version is no longer available.
 
