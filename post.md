@@ -203,7 +203,15 @@ The take away from this section is how communication can be real time between th
 
 #Design
 
-There are various decisions that go into the design of the API, and you can find some great examples online showing API documentation, such as Facebook and Twitter. In regards to the programming languages that are used for the way that the API is communicated with, this is all dependant on the knowledge that your team has and what is the best fit for the integration of your API. This is not as important as the design of the API itself. As long as your have a well structured, semantically correct design for your API, all of the rest is sugar on top of the superstar of your web application.
+There are various decisions that go into the design of the API, and you can find some great examples online showing API documentation, such as Facebook and Twitter. In regards to the programming languages that are used for the way that the API is communicated with, this is all dependant on the knowledge that your team has and what is the best fit for the integration of your API. This is not as important as the design of the API itself. As long as your have a well structured, semantically correct design for your API, all of the rest is sugar on top of the superstar of your web application. With that said, design decisions should consider some rules that will be very handy and helpful in the design and maintenance of the API.
+
+##Iterate
+
+The design of the API can start before you even have an overall idea of what the API(s) will cover in the broadest sense. As long as you have an idea of who the audience is, you can start to program and iterate on small feature sets. Doing so will help you to work in smaller spurts that will more likely help you to keep the functionality small.
+
+##Purposes of Functionality
+
+With modularity in mind during the design process, it will be helpful in the process of keeping the API small and only focusing on one piece of functionality. Throwing more into the API can be a nightmare because taken away from the API is much harder than adding to it. Stay away from adding functions, methods, classes, and more that are not needed at the beginning to get the API working.
 
 There is also the importance of authentication. This topic is important as to how access is granted for communication with your API. That will be in another post. Please take note that these are notes that are from a series that Zepier put on in regards to the design of an API, and you can go to their site to find out for yourself how they view a well thought out API design.
 
