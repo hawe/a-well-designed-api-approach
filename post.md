@@ -272,6 +272,8 @@ Having a well thought out API is important in how you are able to give access to
 
 Your consumers are the ones that will be most interested in your API, and needing to know how to use it will be something that will always be the starting point. Having good documentation for your set of API's will better guide those who are wanting to consume your data. Most, if not all, of the larger companies that have their own API's have a well structured wiki of some sorts that gives overiews, examples of endpoints, and more in regards to all of the endpoints that are available as well as how to reach those endpoints. There also are examples of how different programming languages can go about writing code against the API. With this said, be sure along the way to continue to document and give as much information that you can provide for those who need to know. 
 
+For a much higher level design approach, I suggest checking out this PDF from Joshua Bloch - [How to Design a Good API and Why it Matters](http://lcsd05.cs.tamu.edu/slides/keynote.pdf)
+
 #References
 
 * [RFC-7231 - Hypertext Transfer Protocol: Semantics and Protocol](http://tools.ietf.org/html/rfc7231)
