@@ -2,7 +2,19 @@ The design of an API has different design phases and decision making that will d
 
 #API Overview
 
-An application programming interface (API) is a set of routines, protocols, and tools for building software applications. Operations, inputs, outputs, and types are the characteristics that make up an API. One must consider modularity to be the most important factor when starting to construct the architecture of the API so that the functionality is separated from the implementation. 
+An application programming interface (API) is a set of routines, protocols, and tools for building software applications. Operations, inputs, outputs, and types are the characteristics that make up an API. One must consider modularity to be the most important factor when starting to construct the architecture of the API so that the functionality is separated from the implementation. In the context of this post, which is based on web API's, an API is a specification of remote calls exposed to the API consumers.
+
+Before we get into the design of an API, here are some example use cases for API's that are used on the web:
+
+1. Photo sharing from social networking sites
+2. Being able to share content
+3. Content embedding
+4. Sharing live comments
+5. Video content embedding
+6. Sharing content from one social community to 3rd party applications
+7. Data about a person that can be shared across multiple applications
+
+So that gives a good basis to dive into designing an API and what to take into consideration before, during, and after.
 
 #Data Formats
 
