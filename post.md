@@ -210,7 +210,7 @@ The access token provides an abstraction layer, replacing different authorizatio
 
 Refresh tokens are credentials used to obtain access tokens. When the current access token has become invalid or expires, the refresh token is issued to the client by the authorization server and used to obtain new a new access token. Issuing a refresh token is optional at the discretion of the authorization server. Unlike access tokens, refresh tokens are intended for use only with authorization servers and are never sent to resource servers. 
 
-![Tokens](https://dl-web.dropbox.com/get/Screenshots/Screenshot%202015-03-21%2020.16.28.png?_subject_uid=1963220&w=AAAW55fXOdJOk7SeQDRvq4UhepAd84plW5mssNaWPVNW7g)
+![Tokens](http://imageshack.com/a/img538/3070/ZwZ4RC.png)
 
 ####More Info
 
