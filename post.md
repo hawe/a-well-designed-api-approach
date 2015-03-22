@@ -1,5 +1,9 @@
 The design of an API has different design phases and decision making that will determine how well your API is designed and the usability of your API. Without having a good strategic plan in place from the beginning can make it difficult to sustain the API over time. This post is to help you in this decision making process from the start to end of the design of the API, which leaves it up to you on how you implement your API and offer it for consumption by others that want to take advantage of the data that is offered from the API that you have created and designed.
 
+#API Overview
+
+An application programming interface (API) is a set of routines, protocols, and tools for building software applications. Operations, inputs, outputs, and types are the characteristics that make up an API. One must consider modularity to be the most important factor when starting to construct the architecture of the API so that the functionality is separated from the implementation. 
+
 #Data Formats
 
 ---
