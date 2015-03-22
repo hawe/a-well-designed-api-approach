@@ -194,7 +194,7 @@ There are four roles that are defined by OAuth:
 
 The resource owner is an entity that is capable of granting access to a protected resource. The protected resource is hosted on the resource server which is capable of accepting and responding to protected resource requests using access tokens. The client is an application that is making protected resource requests on behalf of the resource owner and with its authorization. After successfully authenticating, the authorization server issues an access token.
 
-![OAuth Abstract Protocol](https://dl-web.dropbox.com/get/Screenshots/Screenshot%202015-03-21%2020.01.07.png?_subject_uid=1963220&w=AADugaxdevgiusnNEsyKVC74A-Up7lRuh2VIAAFX4lAcmA)
+![OAuth Abstract Protocol](http://imageshack.com/a/img905/865/QhLUBq.png)
 
 ###Tokens
 
