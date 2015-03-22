@@ -7,6 +7,8 @@ One of the first decisions when designing your API is the data format that will 
 
 During a review of this post, it was brought to my attention that JSON is not the most popular and easiest to use data format of all options that are available when designing an API. Other options, such as protocol buffer, SBE, thrift, and cap'n proto are more efficient in terms of how data is passed back and forth because the data is in binary format and is less stressful on the CPU, memory, and bandwidth footpint. That being said, I can agree that there are situations where this can be the case, but I also believe that JSON is the best way to handle data that is passed back in forth when dealing with an application that is built on top of JavaScript & NodeJS. I do not hold the knowledge level to talk about how other data formats would be better, so I will not try to. If there are others that can show these differences in performance gains if being used with the application stack that I am discussing, please share for the knowledge gain of those who are to read this. If you need a comparison of the different data serialization formats, please have a look at [Comparison of data serialization formats](http://wikipedia.com/en/Comparison_of_data_serialization_formats).
 
+On a side note, technically JSON is not considered to be a RESTful API. The reasoning for this is that a key constraint for a RESTful API is that it must use hypermedia formats (the [HATEOAS](http://www.wikipedia.com/en/HATEOAS) constraint). JSON is not a hypermedia format. What this means is that there is no defined way that JSON knows how to deal with link discovery. The W3C has a recommendation for JSON-LD, which is a JSON-based serialization for linked data. More about [JSON-LD 1.0](http://www.w3.org/TR/json-ld/) is available in the W3C recommendation.
+
 ##Dealing with data formats
 The process of dealing with data format is to make sure that the data has been put into a language that one computer can send to another that will understand that data. This is a reason why JSON has become so popular because the use of key value pairs makes it easy for both computers to understand that data stored in the key value pairs. Lets talk about the data that is represented by JSON.
 
@@ -70,6 +72,11 @@ The **CONNECT** request converts the connection to a transparent TCL/IP tunnel, 
 The **PATCH** request applies partial modifications to a resource.
 
 ##Safe Methods
+
+Methods that are by convention considered to be *safe* are those that have no side effects and do not change the state of the server. These methods are considered to be: HEAD, GET, OPTIONS and TRACE). When being considered not to have side effects, what this means essentialy is that there is not much harm that can be done other than the likes of logging, caching, and other small harmless effects. 
+
+Those that are not listed above that are considered to be *safe* are considered for the fact that they can cause state changes to the server and/or open the server to mailicious attacks if programming is careless.
+
 
 #Thought Process
 
@@ -159,7 +166,55 @@ The take away from this section is how communication can be real time between th
 
 There are various decisions that go into the design of the API, and you can find some great examples online showing API documentation, such as Facebook and Twitter. In regards to the programming languages that are used for the way that the API is communicated with, this is all dependant on the knowledge that your team has and what is the best fit for the integration of your API. This is not as important as the design of the API itself. As long as your have a well structured, semantically correct design for your API, all of the rest is sugar on top of the superstar of your web application.
 
-There is also the importance of authentication, which would be just as long as this post, which made me feel better if I left it out for another post to explain the different types of authentication, such as OAuth and OAuth2. This topic is important as to how access is granted for communication with your API. That will be in another post. Please take note that these are notes that are from a series that Zepier put on in regards to the design of an API, and you can go to their site to find out for yourself how they view a well thought out API design.
+There is also the importance of authentication. This topic is important as to how access is granted for communication with your API. That will be in another post. Please take note that these are notes that are from a series that Zepier put on in regards to the design of an API, and you can go to their site to find out for yourself how they view a well thought out API design.
+
+#Authentication
+
+I originally left this out of this post because I felt that it was a whole different post in itself, but what would be a good API without authentication. This topic can be very lengthly to read and get up to speed about, but the details of how authentication is handled can make a huge difference on how you design your API. 
+
+##OAuth 2.0
+One of the most known and used authentication frameworks used these days is OAuth 2.0. This frameworks enables a third-party application to obtain limited access to an HTTP service. To complete this description of OAuth 2.0, here is the abstract from the Internet Engineering Task Force:
+
+> The OAuth 2.0 authorization framework enables a third-party
+   application to obtain limited access to an HTTP service, either on
+   behalf of a resource owner by orchestrating an approval interaction
+   between the resource owner and the HTTP service, or by allowing the
+   third-party application to obtain access on its own behalf.
+
+The client-server authentication traditional model is made up on the client requesting an access-restricted resource on the server by authenticating with the server using the resource owner's credentials. In order to provide third-party applications access to restricted resources, the resource owner shares its credentials with the third-party. In this model there are several problems and limitations that OAuth addresses. The issues are addressed by adding a layer of authoritzation and separating the role of the client from the resource owner. This layer of authentication is where the client obtains an access token that is a string symbolizing the specific scope, lifetime, and other access attributes. It is the authorization server that is responsible for issuing the access token with approval from the resource owner. 
+
+###OAuth Roles
+
+There are four roles that are defined by OAuth:
+
+1. Resource owner
+2. Resource server
+3. Client
+4. Authorization server
+
+The resource owner is an entity that is capable of granting access to a protected resource. The protected resource is hosted on the resource server which is capable of accepting and responding to protected resource requests using access tokens. The client is an application that is making protected resource requests on behalf of the resource owner and with its authorization. After successfully authenticating, the authorization server issues an access token.
+
+![OAuth Abstract Protocol](https://dl-web.dropbox.com/get/Screenshots/Screenshot%202015-03-21%2020.01.07.png?_subject_uid=1963220&w=AADugaxdevgiusnNEsyKVC74A-Up7lRuh2VIAAFX4lAcmA)
+
+###Tokens
+
+There are 2 types of tokens used in OAuth: Access token and Refresh token.
+
+####Access Token
+
+Access tokens are credentials used to access protected resources. Tokens are specific to scopes and durations of access, granted by the resource owner, and policed by the resource server and authorization server. 
+
+The access token provides an abstraction layer, replacing different authorization methods - username/password for example - with a single token understood by the resource server. The abstraction allows for the issuing access tokens to be more restrictive than the authorization used to obrain them, and at the same time removing the resource server's need to understand the wide range of authentication methods. 
+
+####Refresh Token
+
+Refresh tokens are credentials used to obtain access tokens. When the current access token has become invalid or expires, the refresh token is issued to the client by the authorization server and used to obtain new a new access token. Issuing a refresh token is optional at the discretion of the authorization server. Unlike access tokens, refresh tokens are intended for use only with authorization servers and are never sent to resource servers. 
+
+![Tokens](https://dl-web.dropbox.com/get/Screenshots/Screenshot%202015-03-21%2020.16.28.png?_subject_uid=1963220&w=AAAW55fXOdJOk7SeQDRvq4UhepAd84plW5mssNaWPVNW7g)
+
+####More Info
+
+There is a slew of information that can be read about in regards to OAuth 2 from the Internet Engineering Task Force - [The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
 
 #Summary
 
@@ -176,3 +231,4 @@ Your consumers are the ones that will be most interested in your API, and needin
 * [Falaciies of distributed computing](http://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)
 * [What is HTTP Long Polling](http://www.pubnub.com/blog/http-long-polling/)
 * [Webhooks - Read the docs](http://docs.readthedocs.org/en/latest/webhooks.html)
+* [Hypertext Transfer Protocol](http://www.wikipedia.com/en/Hypertext_Transfer_Protocol)
