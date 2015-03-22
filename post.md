@@ -115,6 +115,27 @@ Key Points:
 1. Resources are for clarifying the nouns of the API
 2. Endpoints are used to determine the HTTP verbs
 
+#Maintenance
+
+An API, or set of API's, are the center piece of your application and needs to have a set of principles surrounding the maintenance and versioning of the API.
+
+##Versioning
+
+Versioning is an important decision making process that must take into consideration what state the API will be in when changes occur. If one is to use the [semver](http://semver.org/) approach, the approach would be to follow a strict set of rules:
+
+###Major
+Major version changes are when you make incompatible API changes. When a major version change occurs, it must be made known to public consumers ahead of time about these changes so they can be aware of what will no longer be available. One rule of thumb that should be considered when there is going to be a major change is to deprecate so that consumers will know to start making changes based on the changes of the API. Knowing that the API will have changes that will supersede the previous version will give the consumers of your API time to adjust before the previous version is no longer available.
+
+###Minor
+A minor version is when you make changes that add functionality that is backwards compatible. This can be thought of with the above description of deprecation before the changes to the new version no longer support the changes to the previous version. The changes to the minor version will still allow for use of all parts of your API as is, only with new added functionality that will take the place of deprecated functionality that will be replaced with the new major version.
+
+###Patch
+Patches are bug fixes that improve the functionality of the API. 
+
+In cases whre semver is used, the MAJOR, MINOR, PATCH follow the X.Y.X approach where a major version change will take your version from 1.0.0 to 2.0.0. If there is a minor change, your version will take the approach of adding the functionality changes to the current version. This would be something like an example of 3 functionality changes which would take your version from 1.0.0 to 1.3.0. Take note that when you make a change one level higher, the lesser levels will go back to 0. The patches take the form of increasing your version to something like 1.1.10 if there have been 10 patches to the current 1.1 version. Again, if your functionality changes, lets say to 1.2, your patch will go back to 0. 
+
+Documentation of these changes is important to the public so that it is known what changes/bugs have been fixed in each version change. Take the time to read more about the concept behind [semver](http://semver.org/).
+
 #How to Communicate in Real-Time
 
 ---
