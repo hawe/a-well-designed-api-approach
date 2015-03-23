@@ -49,45 +49,45 @@ API’s have various decisions during the architectural design process, and thes
 
 Let me take a moment and give more details of these HTTP verbs.
 
-#### GET
+**GET**
 
-The first one listed above is the **GET** request. This is used to retrieve a representation of a resource. This can be a collection of a resource or a single item.. Such an example would be `/customers` for a collection, and `/customers/{id}` for a specific item. **GET** requests are not meant to change - read only - data. Some examples could include : `/patients/`, `patients/1001`, and `patients/1001/prescriptions`.
+The first one listed above is the `GET` request. This is used to retrieve a representation of a resource. This can be a collection of a resource or a single item.. Such an example would be `/customers` for a collection, and `/customers/{id}` for a specific item. `GET` requests are not meant to change - read only - data. Some examples could include : `/patients/`, `patients/1001`, and `patients/1001/prescriptions`.
 
-#### PUT
+**PUT**
 
-The **PUT** request is utilized for its updating capabilities. This request is for a new representation of a known resource. **PUT** is to be considered an unsafe operation as it modifies the state on the server. The reason for this to be unsafe is that if you update or create a resource and then try to update the resouce again, the resource is still there and will have the same state as was there from the first **PUT** call. Examples of **PUT** include: `/patients/1001`, `/patients/1001/prescriptions/5534`. More information on these methods and others can be found from the resources listed at the bottom.
+The `PUT` request is utilized for its updating capabilities. This request is for a new representation of a known resource. `PUT` is to be considered an unsafe operation as it modifies the state on the server. The reason for this to be unsafe is that if you update or create a resource and then try to update the resouce again, the resource is still there and will have the same state as was there from the first `PUT` call. Examples of `PUT` include: `/patients/1001`, `/patients/1001/prescriptions/5534`. More information on these methods and others can be found from the resources listed at the bottom.
 
-###POST
+**POST**
 
-The **POST** request is a new request that the web server accepts with the entity that is enclosed and identified by the URI. It is used to create subordinate resources, which in essence means it is a subordinate to some other resource. This method is not considered to be a *safe* method as making identical requests will likely result in two resources containing the same information. Examples of the **POST** include:
+The `POST` request is a new request that the web server accepts with the entity that is enclosed and identified by the URI. It is used to create subordinate resources, which in essence means it is a subordinate to some other resource. This method is not considered to be a *safe* method as making identical requests will likely result in two resources containing the same information. Examples of the `POST` include:
 
 `/patients`
 `/patients/1001/prescriptions`
 
-###DELETE
+**DELETE**
 
-The **DELETE** request is fairly straight and easy to understand. It is used to delete a resouce that is identified by a URI. The request will delete a resource, and repeatedly calling DELETE on that resource will always end up the same. Some examples of **DELETE** include:
+The `DELETE` request is fairly straight and easy to understand. It is used to delete a resouce that is identified by a URI. The request will delete a resource, and repeatedly calling DELETE on that resource will always end up the same. Some examples of `DELETE` include:
 
 `/patients/1001`
 `/patients/1001/prescriptions`
 
-###TRACE
+**TRACE**
 
-The **TRACE** request will send back the received request allowing the client to see if there have been any changes or additions by intermediate servers.
+The `TRACE` request will send back the received request allowing the client to see if there have been any changes or additions by intermediate servers.
 
-###OPTIONS
+**OPTIONS**
 
-The **OPTIONS** will return the methods of HTTP that the server supports for the specified URL.
+The `OPTIONS` will return the methods of HTTP that the server supports for the specified URL.
 
-###CONNECT
+**CONNECT**
 
-The **CONNECT** request converts the connection to a transparent TCL/IP tunnel, which is usually used to facilitate SSL encryption.
+The `CONNECT` request converts the connection to a transparent TCL/IP tunnel, which is usually used to facilitate SSL encryption.
 
-###PATCH
+**PATCH**
 
-The **PATCH** request applies partial modifications to a resource.
+The `PATCH` request applies partial modifications to a resource.
 
-##Safe Methods
+### Safe Methods
 
 Methods that are by convention considered to be *safe* are those that have no side effects and do not change the state of the server. These methods are considered to be: HEAD, GET, OPTIONS and TRACE). When being considered not to have side effects, what this means essentialy is that there is not much harm that can be done other than the likes of logging, caching, and other small harmless effects.
 
@@ -115,23 +115,23 @@ Key Points:
 1. Resources are for clarifying the nouns of the API
 2. Endpoints are used to determine the HTTP verbs
 
-#Maintenance
+## Maintenance
 
 An API, or set of API's, are the center piece of your application and needs to have a set of principles surrounding the maintenance and versioning of the API.
 
-##Versioning
+## Versioning
 
 Versioning is an important decision making process that must take into consideration what state the API will be in when changes occur. If one is to use the [semver](http://semver.org/) approach, the approach would be to follow a strict set of rules:
 
 ![Semantic Versioning](http://imageshack.com/a/img537/9536/YvODxA.jpg)
 
-###Major
+### Major
 Major version changes are when you make incompatible API changes. When a major version change occurs, it must be made known to public consumers ahead of time about these changes so they can be aware of what will no longer be available. One rule of thumb that should be considered when there is going to be a major change is to deprecate so that consumers will know to start making changes based on the changes of the API. Knowing that the API will have changes that will supersede the previous version will give the consumers of your API time to adjust before the previous version is no longer available.
 
-###Minor
+### Minor
 A minor version is when you make changes that add functionality that is backwards compatible. This can be thought of with the above description of deprecation before the changes to the new version no longer support the changes to the previous version. The changes to the minor version will still allow for use of all parts of your API as is, only with new added functionality that will take the place of deprecated functionality that will be replaced with the new major version.
 
-###Patch
+### Patch
 Patches are bug fixes that improve the functionality of the API.
 
 In cases whre semver is used, the MAJOR, MINOR, PATCH follow the X.Y.X approach where a major version change will take your version from 1.0.0 to 2.0.0. If there is a minor change, your version will take the approach of adding the functionality changes to the current version. This would be something like an example of 3 functionality changes which would take your version from 1.0.0 to 1.3.0. Take note that when you make a change one level higher, the lesser levels will go back to 0. The patches take the form of increasing your version to something like 1.1.10 if there have been 10 patches to the current 1.1 version. Again, if your functionality changes, lets say to 1.2, your patch will go back to 0.
@@ -200,25 +200,25 @@ Here is a diagram of the Push API from the W3C draft:
 
 The take away from this section is how communication can be real time between the server and the user with the client acting as the middle man doing all of the requesting.
 
-##Design
+## Design
 
 There are various decisions that go into the design of the API, and you can find some great examples online showing API documentation, such as Facebook and Twitter. In regards to the programming languages that are used for the way that the API is communicated with, this is all dependant on the knowledge that your team has and what is the best fit for the integration of your API. This is not as important as the design of the API itself. As long as your have a well structured, semantically correct design for your API, all of the rest is sugar on top of the superstar of your web application. With that said, design decisions should consider some rules that will be very handy and helpful in the design and maintenance of the API.
 
-##Iterate
+## Iterate
 
 The design of the API can start before you even have an overall idea of what the API(s) will cover in the broadest sense. As long as you have an idea of who the audience is, you can start to program and iterate on small feature sets. Doing so will help you to work in smaller spurts that will more likely help you to keep the functionality small.
 
-##Purposes of Functionality
+## Purposes of Functionality
 
 With modularity in mind during the design process, it will be helpful in the process of keeping the API small and only focusing on one piece of functionality. Throwing more into the API can be a nightmare because taken away from the API is much harder than adding to it. Stay away from adding functions, methods, classes, and more that are not needed at the beginning to get the API working.
 
 There is also the importance of authentication. This topic is important as to how access is granted for communication with your API. That will be in another post. Please take note that these are notes that are from a series that Zepier put on in regards to the design of an API, and you can go to their site to find out for yourself how they view a well thought out API design.
 
-#Authentication
+## Authentication
 
 I originally left this out of this post because I felt that it was a whole different post in itself, but what would be a good API without authentication. This topic can be very lengthly to read and get up to speed about, but the details of how authentication is handled can make a huge difference on how you design your API.
 
-##OAuth 2.0
+### OAuth 2.0
 One of the most known and used authentication frameworks used these days is OAuth 2.0. This frameworks enables a third-party application to obtain limited access to an HTTP service. To complete this description of OAuth 2.0, here is the abstract from the Internet Engineering Task Force:
 
 > The OAuth 2.0 authorization framework enables a third-party
@@ -229,7 +229,7 @@ One of the most known and used authentication frameworks used these days is OAut
 
 The client-server authentication traditional model is made up on the client requesting an access-restricted resource on the server by authenticating with the server using the resource owner's credentials. In order to provide third-party applications access to restricted resources, the resource owner shares its credentials with the third-party. In this model there are several problems and limitations that OAuth addresses. The issues are addressed by adding a layer of authoritzation and separating the role of the client from the resource owner. This layer of authentication is where the client obtains an access token that is a string symbolizing the specific scope, lifetime, and other access attributes. It is the authorization server that is responsible for issuing the access token with approval from the resource owner.
 
-###OAuth Roles
+**OAuth Roles**
 
 There are four roles that are defined by OAuth:
 
@@ -242,27 +242,27 @@ The resource owner is an entity that is capable of granting access to a protecte
 
 ![OAuth Abstract Protocol](http://imageshack.com/a/img905/865/QhLUBq.png)
 
-###Tokens
+**Tokens**
 
 There are 2 types of tokens used in OAuth: Access token and Refresh token.
 
-####Access Token
+**Access Token**
 
 Access tokens are credentials used to access protected resources. Tokens are specific to scopes and durations of access, granted by the resource owner, and policed by the resource server and authorization server.
 
 The access token provides an abstraction layer, replacing different authorization methods - username/password for example - with a single token understood by the resource server. The abstraction allows for the issuing access tokens to be more restrictive than the authorization used to obrain them, and at the same time removing the resource server's need to understand the wide range of authentication methods.
 
-####Refresh Token
+**Refresh Token**
 
 Refresh tokens are credentials used to obtain access tokens. When the current access token has become invalid or expires, the refresh token is issued to the client by the authorization server and used to obtain new a new access token. Issuing a refresh token is optional at the discretion of the authorization server. Unlike access tokens, refresh tokens are intended for use only with authorization servers and are never sent to resource servers.
 
 ![Tokens](http://imageshack.com/a/img538/3070/ZwZ4RC.png)
 
-####More Info
+### More Info
 
 There is a slew of information that can be read about in regards to OAuth 2 from the Internet Engineering Task Force - [The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
 
-#Frameworks
+## Frameworks
 
 This is a short list of frameworks that you may want to look into for your API. By no means are these the only frameworks, nor are they in any particular order. If you know of some that are not listed, please share.
 
@@ -273,7 +273,7 @@ This is a short list of frameworks that you may want to look into for your API. 
 4. [List of REST frameworks categorized by supported languages](https://code.google.com/p/implementing-rest/wiki/ByLanguage)
 
 
-##Summary
+## Summary
 
 Having a well thought out API is important in how you are able to give access to your consumers of the data that you make available. Not only so, but it also gives for creating a better application infrastructure. It will be the details that are put into the API design that can then give you the base knowledge of how to code your application around the API.
 
@@ -281,7 +281,7 @@ Your consumers are the ones that will be most interested in your API, and needin
 
 For a much higher level design approach, I suggest checking out this PDF from Joshua Bloch - [How to Design a Good API and Why it Matters](http://lcsd05.cs.tamu.edu/slides/keynote.pdf)
 
-##References
+### References
 
 * [RFC-7231 - Hypertext Transfer Protocol: Semantics and Protocol](http://tools.ietf.org/html/rfc7231)
 * [Header Field Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14)
