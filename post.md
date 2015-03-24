@@ -284,7 +284,58 @@ No matter how good you document and help people to integrate and work with you A
 
 If you have a build system that includes ways to build, deploy, etc., you will want this to be documented. A good scenario here is if you have your API open sourced. Other developers might want to fork your API, to which they will need instructions on how to build, test, deploy, and more once they have forked and/or installed on their machines.
 
+## API Reference Information
 
+There is a wealth of content on the web that can help with being able to setup a reference for your API, and some of that includes what will be shown here. Making every part of your API known is vital to the health of the API. Every aspect of your API should be documented. More details can be found on [Wikipedia](http://wikipedia.com/en/Application_programming_interface#/API_reference_documentation), which I will reference here.
+
+**Function Signatures**
+
+In some of the languages that are used on the web we see the use of code documents, such as JSDocs, used. When it comes to an API, this will have to be publicly available beyond the source code. Documenting the signatures will make it understandable to what each function is handling. The function signatures should include the following:
+
+1. Function names
+2. Function parameter names and types
+3. return types for the functions
+4. Each parameter, and whether or not it can be modified inside the function
+5. How error handling conditions work with each function
+6. Possible side-effects
+7. Pre and Post conditions
+8. State changes after function execution
+
+There could be more that one could include to make sure that all parts of a function are known. Giving an example would be helpful when sharing these signatures. In Python, here is an example of a function signature:
+
+```
+def days_difference(day1, day2):
+    """ (int, int) -> int
+    
+    Return the number of days between day 1 and day 2, which are both in the range 1-365 (thus indicating the day of the year).
+    
+    >>> days_difference(200, 224)
+    24
+    
+    >>> days_difference(50, 50)
+    0
+    
+    >> days_difference(100, 99)
+    -1
+    """
+    
+    return day2 - day1
+```
+
+Making this available in your documentation will give users a better understanding of how the function works and what can be expected of the function.
+
+**More References**
+
+There are various other references that you should have available that should include:
+
+1. Any type of exception handling and report any situations that would throw and exception and the conditions that would throw the exception.
+2. If the API has an concurrency, any type of race conditions should be documented, explaining possible use cases of the race conditions.
+3. Any part of the API that is currently unstable. This could be a release candidate that is available for testing. Make these known that they are currently unstable and what is unstable about it.
+4. Any parts of your API that are deprecated should be referenced so users of your API are made aware of these deprecations.
+
+Depending on the use of your API will depend on what references need to be documented.
+
+There is a much more comprehensive guide to documentation found on the Wkipedia page that I linked to above.
 
 ## Frameworks
 
