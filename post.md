@@ -264,6 +264,28 @@ Refresh tokens are credentials used to obtain access tokens. When the current ac
 
 There is a slew of information that can be read about in regards to OAuth 2 from the Internet Engineering Task Force - [The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
 
+## Documentation
+
+Talked about earlier in the post, and will be expanded on here, is that documentation is important to the usage of your API. Here are some high level topics that you might want to consider with your documentation.
+
+**Reference Documentation**
+
+Having a summary of the functions and objects that give a reference to these, along with access links for more in-depth information is beneficial to the public users of your API.
+
+**Getting Started**
+
+Your documentation would be best suited written in a way where you expect your audience to know nothing about your API and what is the reason for the API being built. This way you will start to write in a way where you give a well described start to finish tutorial on getting started. Such an example would be "How to Implement" tutorial, or extended example(s). This way a person could follow along with the first implementation of the API for the use case that the person may have. Having these step-by-step instructions will go along way in having good results with the implementation of your API, and less time having to help with troubleshooting issues. Which takes us to the next documentation.
+
+**Troubleshooting**
+
+No matter how good you document and help people to integrate and work with you API, there will be troubleshooting issues. Knowing these possible edge cases, either from your time spent building the API, or from previous user troubleshooting responses, having a system setup to handle troubleshooting will be a great asset. Knowledgebase and FAQ's are great to have for these issues on how to troubleshoot, in hopes that the answers can be found in these. This will be a time saver for you. All troubleshooting issues should be addresses no matter the size or complexity, and with each of them you should store them for others to have access to.
+
+**SDK Information**
+
+If you have a build system that includes ways to build, deploy, etc., you will want this to be documented. A good scenario here is if you have your API open sourced. Other developers might want to fork your API, to which they will need instructions on how to build, test, deploy, and more once they have forked and/or installed on their machines.
+
+
+
 ## Frameworks
 
 This is a short list of frameworks that you may want to look into for your API. By no means are these the only frameworks, nor are they in any particular order. If you know of some that are not listed, please share.
