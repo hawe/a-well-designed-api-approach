@@ -96,7 +96,17 @@ Those that are not listed above that are considered to be *safe* are considered 
 
 ## Thought Process
 
-This first thought process has to be how easy can the API be so that other computers can work with the data delivers from the API. This brings up the decisions that were touched on in the previosu paragraph. One of the most used approaches is Representational State Transfer – REST – because it is an open approach for lots of conventions that are used for consumers of your API. How this transfer is made is determined by the resources made available by your API.
+Here we start to get into a very interesting part of API design. The thought process can be difficult, which tends to lead people away from designing an API. Why? There are some hard decisions that have to be made during the thought process. Such decisions that make it difficult include:
+
+1. It forces programmers to look into the future of how the code will be designed. It can be difficult to look this far into the future but is necessary.
+2. When an API is started in the design process, the requirements of the API are not completely known. This can be difficult to foresee what will be needed for the API to be functional and of use to the audience that intends to make use of it.
+3. Requires abstraction
+4. Requires modularization
+5. Requires time consuming and labor intensive refactoring
+
+If you are able to go into the thought process being aware of these decisions, you will be ready for the next steps that will start how you design the API.
+
+After you have made the decison to move foward with creating the API, the first thought process has to be how easy can the API be so that other computers can work with the data delivers from the API. This brings up the decisions that were touched previously. One of the most used approaches is Representational State Transfer – REST – because it is an open approach for lots of conventions that are used for consumers of your API. How this transfer is made is determined by the resources made available by your API.
 
 ### Example
 
