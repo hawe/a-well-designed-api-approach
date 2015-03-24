@@ -376,3 +376,4 @@ For a much higher level design approach, I suggest checking out this PDF from Jo
 * [What is HTTP Long Polling](http://www.pubnub.com/blog/http-long-polling/)
 * [Webhooks - Read the docs](http://docs.readthedocs.org/en/latest/webhooks.html)
 * [Hypertext Transfer Protocol](http://www.wikipedia.com/en/Hypertext_Transfer_Protocol)
+* [How to Design APIs for Cryptographic Protocols](http://www.lior.ca/publications/api_design.pdf)
