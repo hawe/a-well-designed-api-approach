@@ -384,7 +384,8 @@ This is a short list of frameworks that you may want to look into for your API. 
 2. [Swagger](http://swagger.io/)
 2. [Django REST framework](http://www.django-rest-framework.org/)
 3. [Restlet](http://restlet.com/)
-4. [List of REST frameworks categorized by supported languages](https://code.google.com/p/implementing-rest/wiki/ByLanguage)
+4. [json:api](http://jsonapi.org/)
+5. [List of REST frameworks categorized by supported languages](https://code.google.com/p/implementing-rest/wiki/ByLanguage)
 
 
 ## Summary
