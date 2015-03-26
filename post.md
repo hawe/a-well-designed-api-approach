@@ -210,7 +210,36 @@ Here is a diagram of the Push API from the W3C draft:
 
 ![Push API](http://www.w3.org/TR/push-api/sequence_diagram.png)
 
+### PJAX
+
+This was something that caught my eye when I was playing with Postman and looking and responses from different sites. One that really took my eye was responses that I would get back from GitHub when going through a repository. The reponse sent back the `Vary` header field. To describe the `Vary` header field:
+
+> The "Vary" header field in a response describes what parts of a
+   request message, aside from the method, Host header field, and
+   request target, might influence the origin server's process for
+   selecting and representing this response.  The value consists of
+   either a single asterisk ("*") or a list of header field names
+   (case-insensitive).
+   
+So when I say this I saw that it sent back `X-PJAX`, which I had not dealt much with. So I looked into it and found out that it can turbo charge an application by sending back HTML from the server for only a specific fragment of the page. It is a combination between client side and server side rendering of HTML. 
+
+This falls into the category of real time options because of its ability to render views quicker because only a fragment of the page is being rendered. An example of this is with GitHub when you view a users repositories. No other part of the page has to be rendered again besides the fragment of the page that holds the listing of the repositories. Once you click on the repository, all is still in place and it is just the fragement of the page that holds the repository that changes. When the HTML is rendered from the server - along with the data - it does not have to be rendered on the client side after the data has been retrieved. This can make for a faster user experience when navigating an application. Here is an example that I will take away from GitHub.
+
+![PJAX Example](https://semsdesign.s3.amazonaws.com/pjax.png)
+
+Here is what is happening with this interaction:
+
+1. The user will click on post.md. At this time all of the assets have been loaded in the document already
+2. The request will go to the server with an attribute set on the anchor that will tell where to insert the requested data and HTML.
+3. The server will gather the data and the HTML that will be rendered
+4. That data and HTML will be put into the fragment of the DOM without any other part having to be rendered again.
+
+This can make for a much smoother interaction with the application because of the need to only request what is needed and not having to do a full reload even though the pushState is changing the URL. 
+
+More about this can be found at the references below. There is a really nice jQuery plugin that works well with PJAX.
+
 The take away from this section is how communication can be real time between the server and the user with the client acting as the middle man doing all of the requesting.
+
 
 ## Design
 
@@ -377,3 +406,4 @@ For a much higher level design approach, I suggest checking out this PDF from Jo
 * [Webhooks - Read the docs](http://docs.readthedocs.org/en/latest/webhooks.html)
 * [Hypertext Transfer Protocol](http://www.wikipedia.com/en/Hypertext_Transfer_Protocol)
 * [How to Design APIs for Cryptographic Protocols](http://www.lior.ca/publications/api_design.pdf)
+* [jquery-pjax](https://github.com/defunkt/jquery-pjax)
